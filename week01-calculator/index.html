@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Meta setting for character set of the page -->
+        <meta charset="utf8">
+
+        <!-- Page title -->
+        <title>On Screen Calculator</title>
+
+        <!-- Inline CSS -->
+        <style type="text/css">
+            body {
+              width: 100%;
+            }
+            div.calculator {
+              margin: 0 auto;
+            }
+            .btn {
+              height: 50px;
+              width: 50px;
+              border: 1px solid black;
+              line-height: 55px;
+              font-size: 24px;
+              text-align: center;
+              margin: 10px 5px;
+              display: inline-block;
+              background-color: lightgray;
+            }
+            .screen {
+              height: 50px;
+              width: 245px;
+              border: 1px solid black;
+              font-size: 24px;
+              text-align: right;
+              margin: 10px 5px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="calculator">
+          <div>
+            <div class="screen"></div>
+          </div>
+          <div>
+            <div class="btn number">7</div>
+            <div class="btn number">8</div>
+            <div class="btn number">9</div>
+            <div class="btn operator">+</div>
+          </div>
+          <div>
+            <div class="btn number">4</div>
+            <div class="btn number">5</div>
+            <div class="btn number">6</div>
+            <div class="btn operator">-</div>
+          </div>
+          <div>
+            <div class="btn number">1</div>
+            <div class="btn number">2</div>
+            <div class="btn number">3</div>
+            <div class="btn operator">*</div>
+          </div>
+          <div>
+            <div class="btn number">0</div>
+            <div class="btn clear">C</div>
+            <div class="btn equal">=</div>
+            <div class="btn operator">/</div>
+          </div>
+        </div>
+
+      <script src="../common/jquery.min.js" type="text/javascript"></script>
+      <script src="calc.js" type="text/javascript"></script>
+    </body>
+</html>
