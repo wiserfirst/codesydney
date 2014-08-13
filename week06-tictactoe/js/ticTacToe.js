@@ -6,10 +6,9 @@ var getRowValues = function(i) {
         throw "Invalid row number " + i;
     }
 
-    var rowValues = [];
-    $(".row:nth(" + i + ") .cell").each(function() {
-        rowValues.push($(this).text());
-    });
+    var rowValues = $(".row:nth(" + (i) + ") .cell").map(function() {
+        return $(this).text();
+    }).toArray();
     //console.log(rowValues);
     return rowValues;
 };
@@ -19,11 +18,9 @@ var getColumnValues = function(i) {
         throw "Invalid column number " + i;
     }
 
-    var columnValues = [];
-    for (var k = 0; k < BOARD_SIZE; k++) {
-        var value = $(".row:nth(" + k + ") .cell:nth("+ i + ")").text();
-        columnValues.push(value);
-    }
+    var columnValues = $(".cell:nth-child("+ (i+1) + ")").map(function() {
+        return $(this).text();
+    }).toArray();
     //console.log(columnValues);
     return columnValues;
 };
@@ -108,7 +105,7 @@ $(function() {
             alert(msg);
             location.reload();
         }
-        console.log(rowIndex, columnIndex, tictactoe.isPlayer1);
+        //console.log(rowIndex, columnIndex, tictactoe.isPlayer1);
         tictactoe.isPlayer1 = !tictactoe.isPlayer1;
     });
 
