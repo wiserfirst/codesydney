@@ -67,12 +67,13 @@ $(function() {
 
     var tictactoe = {
         isPlayer1: true,
+        symbols: {player1: "O", player2: "X"},
         getSymbol: function() {
-            var symbol = "X";
             if (tictactoe.isPlayer1) {
-                symbol = "O";
-            } 
-            return symbol;
+                return tictactoe.symbols.player1;
+            } else {
+                return tictactoe.symbols.player2;
+            }
         },
         checkWin: function(rowIndex, columnIndex) {
             var symbol = tictactoe.getSymbol();
@@ -90,12 +91,11 @@ $(function() {
             if (onDiag(rowIndex, columnIndex, false) && allEquals(getDiagValues(false), symbol)) {
                 return true;
             }
-            //var columnValues = getColumnValues(columnIndex);
             return false;
         }
     };
 
-    $(".cell").click(function() {
+    $("#board").on('click', '.cell', function() {
         if ($(this).text().length === 0) {
             $(this).text(tictactoe.getSymbol());
         }
@@ -104,12 +104,10 @@ $(function() {
         var columnIndex = $(this).index();
         if (tictactoe.checkWin(rowIndex, columnIndex)) {
             var msg = "Player " + (tictactoe.isPlayer1 ? "1" : "2") + " Wins!";
-            console.log(msg);
+            //console.log(msg);
             alert(msg);
             location.reload();
         }
-        //getColumnValues(columnIndex);
-        //getRowValues(rowIndex);
         console.log(rowIndex, columnIndex, tictactoe.isPlayer1);
         tictactoe.isPlayer1 = !tictactoe.isPlayer1;
     });
