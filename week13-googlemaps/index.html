@@ -1,12 +1,38 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+  <head>
+    <title>Google Maps</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #location {
+          margin: auto;
+          width: 500px;
+      }
+      #container {
+          width: 100%;
+      }
 
-<p>Needs a volunteer...</p>
-
-</body>
+    </style>
+    <script src="../common/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <form id="location">
+        <input type="text" placeholder="latitude" id="latitude">
+        <input type="text" placeholder="longitude" id="longitude">
+        <input type="text" placeholder="message" id="message">
+        <input type="submit" id="submit">
+      </form>
+    </div>
+    <div id="map-canvas"></div>
+  </body>
 </html>
